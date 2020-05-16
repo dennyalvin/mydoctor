@@ -1,5 +1,5 @@
 current directory: /home/omden/ruby/mydoctor/vendor/bundle/ruby/2.5.0/gems/nio4r-2.5.2/ext/nio4r
-/usr/bin/ruby2.5 -r ./siteconf20200515-16904-3juu8t.rb extconf.rb
+/usr/bin/ruby2.5 -r ./siteconf20200516-13467-1cjizml.rb extconf.rb
 checking for unistd.h... yes
 checking for linux/aio_abi.h... yes
 checking for sys/select.h... yes
@@ -45,4 +45,4 @@ linking shared-object nio4r_ext.so
 
 current directory: /home/omden/ruby/mydoctor/vendor/bundle/ruby/2.5.0/gems/nio4r-2.5.2/ext/nio4r
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 nio4r_ext.so ./.gem.20200515-16904-op55dj
+/usr/bin/install -c -m 0755 nio4r_ext.so ./.gem.20200516-13467-j1ewux

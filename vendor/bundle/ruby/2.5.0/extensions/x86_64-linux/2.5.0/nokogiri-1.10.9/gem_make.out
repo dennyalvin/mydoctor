@@ -1,5 +1,5 @@
 current directory: /home/omden/ruby/mydoctor/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri
-/usr/bin/ruby2.5 -r ./siteconf20200515-16904-doy015.rb extconf.rb
+/usr/bin/ruby2.5 -r ./siteconf20200516-13467-1c07jme.rb extconf.rb
 checking if the C compiler accepts ... yes
 Building nokogiri using packaged libraries.
 Using mini_portile version 2.4.0
@@ -134,4 +134,4 @@ rm -rf /home/omden/ruby/mydoctor/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/p
 
 current directory: /home/omden/ruby/mydoctor/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 nokogiri.so ./.gem.20200515-16904-1hac3i0/nokogiri
+/usr/bin/install -c -m 0755 nokogiri.so ./.gem.20200516-13467-1wtl25c/nokogiri

@@ -1,5 +1,5 @@
 current directory: /home/omden/ruby/mydoctor/vendor/bundle/ruby/2.5.0/gems/ffi-1.12.2/ext/ffi_c
-/usr/bin/ruby2.5 -r ./siteconf20200515-16904-y4of7t.rb extconf.rb
+/usr/bin/ruby2.5 -r ./siteconf20200516-13467-1ks83xa.rb extconf.rb
 checking for ffi.h... no
 checking for ffi.h in /usr/local/include,/usr/include/ffi... no
 checking for shlwapi.h... no
@@ -179,4 +179,4 @@ compiling Types.c
 compiling Variadic.c
 compiling ffi.c
 linking shared-object ffi_c.so
-/usr/bin/install -c -m 0755 ffi_c.so ./.gem.20200515-16904-ozl1p6
+/usr/bin/install -c -m 0755 ffi_c.so ./.gem.20200516-13467-90ze5f
