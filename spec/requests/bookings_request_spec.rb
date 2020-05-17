@@ -39,6 +39,12 @@ RSpec.describe "Bookings", type: :request do
 		end
 
 		it 'ensure Customer has not made booking at same schedule' do
+			#Faker Hospital
+			hospital = 	Hospital.create(
+					    	name: Faker::Company.name,
+					    	address: Faker::Address.full_address
+					    )
+
 			#Faker Doctor
 			doctor = Doctor.create(
 		        name: Faker::Name.unique.name_with_middle
@@ -50,20 +56,33 @@ RSpec.describe "Bookings", type: :request do
 
 		    #Faker Doctor Schedule
 		    schedule = DoctorSchedule.create(
-		        doctor: doctor, date: fakerDate, start_time: fakerOpeningHour, end_time: fakerClosingHour
+		        doctor: doctor,
+		        hospital: hospital,
+		        date: fakerDate,
+		        start_time: fakerOpeningHour,
+		        end_time: fakerClosingHour
 		    )
 
+			
 		    #First Booking
 			post "/api/v1/bookings/create", headers: authenticated_header, :params => {:doctor_schedule_id => schedule.id , :patient_name => 'Hendra', :email => 'hendra@email.com', :phone => '0811112323', :birthday => '23-12-1989', :payment_type => 'BPJS' , :notes => 'Please ontime'}
+			#expect(response.content_type).to eq("application/json; charset=utf-8")
+    		#expect(response).to have_http_status(200)
 
 			#Second Booking
 			post "/api/v1/bookings/create", headers: authenticated_header, :params => {:doctor_schedule_id => schedule.id , :patient_name => 'Other Hendra', :email => 'other.hendra33@email.com', :phone => '087723323883', :birthday => '12-12-1990', :payment_type => 'Insurance' , :notes => 'Please ontime'}
             
 			expect(response.content_type).to eq("application/json; charset=utf-8")
-    		expect(response).to have_http_status(:ok)
+    		expect(response).to have_http_status(200)
 		end
 
 		it 'returns a success booking response' do
+			#Faker Hospital
+			hospital = 	Hospital.create(
+					    	name: Faker::Company.name,
+					    	address: Faker::Address.full_address
+					    )
+
 			#Faker Doctor
 			doctor = Doctor.create(
 		        name: Faker::Name.unique.name_with_middle
@@ -75,6 +94,7 @@ RSpec.describe "Bookings", type: :request do
 
 		    #Faker Doctor Schedule
 		    schedule = DoctorSchedule.create(
+		    	hospital: hospital,
 		        doctor: doctor, date: fakerDate, start_time: fakerOpeningHour, end_time: fakerClosingHour
 		    )
 

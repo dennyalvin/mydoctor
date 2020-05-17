@@ -27,11 +27,16 @@ RSpec.describe Booking, type: :model do
 	        doctor: doctor, date: fakerDate, start_time: fakerOpeningHour, end_time: fakerClosingHour
 	    )
 
+		hospital = 	Hospital.create(
+				    	name: Faker::Company.name,
+				    	address: Faker::Address.full_address
+				    )
         it 'ensures patient_name presence' do
 
         	booking = Booking.create(
         		customer: customer,
         		doctor: doctor,
+        		hospital: hospital,
         		schedule_date: schedule.date,
             	start_time: schedule.start_time,
             	end_time: schedule.end_time,
@@ -53,6 +58,7 @@ RSpec.describe Booking, type: :model do
         	booking = Booking.create(
         		customer: customer,
         		doctor: doctor,
+        		hospital: hospital,
         		schedule_date: schedule.date,
             	start_time: schedule.start_time,
             	end_time: schedule.end_time,
@@ -74,6 +80,7 @@ RSpec.describe Booking, type: :model do
         	booking = Booking.create(
         		customer: customer,
         		doctor: doctor,
+        		hospital: hospital,
         		schedule_date: schedule.date,
             	start_time: schedule.start_time,
             	end_time: schedule.end_time,
@@ -95,6 +102,7 @@ RSpec.describe Booking, type: :model do
         	booking = Booking.create(
         		customer: customer,
         		doctor: doctor,
+        		hospital: hospital,
         		schedule_date: schedule.date,
             	start_time: schedule.start_time,
             	end_time: schedule.end_time,
@@ -116,6 +124,7 @@ RSpec.describe Booking, type: :model do
         	booking = Booking.create(
         		customer: customer,
         		doctor: doctor,
+        		hospital: hospital,
         		schedule_date: schedule.date,
             	start_time: schedule.start_time,
             	end_time: schedule.end_time,
