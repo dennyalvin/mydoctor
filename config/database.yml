@@ -22,7 +22,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: mydoctor
+  database: mydoctor_test
   username: debian-sys-maint
   password: 6cKBsiFjtBJJtv5Z
   host: 127.0.0.1
