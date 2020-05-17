@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
       get '/hospitals', to: 'hospital#index'
 
-      get 'bookings', to: 'booking#index'
+      get 'bookings', to: 'booking#index' , as: 'booking'
       post '/bookings/create', to: 'booking#create'
 
     end

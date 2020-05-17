@@ -1,5 +1,3 @@
-require 'jwt'
-
 class Api::V1::AuthController < ApplicationController
 	def register
 		@customer = Customer.new()
@@ -14,14 +12,14 @@ class Api::V1::AuthController < ApplicationController
 		if @customer.save()
 			return render json: @customer
 		else
-            return render json: {errors: @customer.errors.full_messages}
+            return render json: {errors: @customer.errors.full_messages}, status: 500
         end
 	end
 
 	def login
 		@customer = Customer.find_by(email: customer_params[:email])
         if @customer.present? && @customer.authenticate(customer_params[:password])
-            token = JWT.encode({id: @customer.id}, Rails.application.secrets.secret_key_base, 'HS256')
+            token = JsonWebToken.encode({id: @customer.id})
             return render json: {token: token}
 		end
 

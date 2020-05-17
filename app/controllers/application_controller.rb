@@ -1,4 +1,4 @@
-require 'jwt'
+
 
 class ApplicationController < ActionController::API
   
@@ -10,12 +10,12 @@ class ApplicationController < ActionController::API
     header = request.headers['Authorization']
     header = header.split(' ').last if header
     begin
-      decoded = JWT.decode(header,Rails.application.secrets.secret_key_base)[0]
-      @current_user = Customer.find(decoded[:id])
+      @decoded = JsonWebToken.decode(header)
+      @current_user = Customer.find(@decoded[:id])
     rescue ActiveRecord::RecordNotFound => e
-      render json: { errors: e.message }, status: :unauthorized
+      render json: { errors: e.message }, status: 401
     rescue JWT::DecodeError => e
-      render json: { errors: e.message }, status: :unauthorized
+      render json: { errors: e.message }, status: 401
     end
   end
 end
