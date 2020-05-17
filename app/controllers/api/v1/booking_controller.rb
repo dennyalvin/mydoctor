@@ -47,6 +47,7 @@ class Api::V1::BookingController < ApplicationController
             @booking = Booking.new()
             @booking.customer = @customer
             @booking.doctor = @schedule.doctor
+            @booking.hospital = @schedule.hospital
             @booking.schedule_date = @schedule.date
             @booking.start_time = @schedule.start_time
             @booking.end_time = @schedule.end_time

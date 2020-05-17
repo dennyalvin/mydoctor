@@ -8,7 +8,6 @@ Rails.application.routes.draw do
 
       get '/doctors' , to: 'doctor#index'
       get '/schedules', to: 'doctor_schedule#index'
-
       get '/hospitals', to: 'hospital#index'
 
       get 'bookings', to: 'booking#index' , as: 'booking'

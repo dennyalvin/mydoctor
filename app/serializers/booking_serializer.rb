@@ -1,6 +1,7 @@
 class BookingSerializer < ActiveModel::Serializer
   attributes :id, :customer_id, :schedule_date , :start_time, :end_time , :status, :created_at
   belongs_to :doctor, serializer: DoctorSerializer
+  belongs_to :hospital, serializer: HospitalSerializer
   has_one :booking_detail, serializer: BookingDetailSerializer
 
   def start_time

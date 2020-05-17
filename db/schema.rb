@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2020_05_15_114956) do
   create_table "bookings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "doctor_id", null: false
     t.bigint "customer_id", null: false
+    t.bigint "hospital_id", null: false
     t.date "schedule_date"
     t.time "start_time"
     t.time "end_time"
@@ -36,6 +37,7 @@ ActiveRecord::Schema.define(version: 2020_05_15_114956) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["customer_id"], name: "index_bookings_on_customer_id"
     t.index ["doctor_id"], name: "index_bookings_on_doctor_id"
+    t.index ["hospital_id"], name: "index_bookings_on_hospital_id"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -66,12 +68,14 @@ ActiveRecord::Schema.define(version: 2020_05_15_114956) do
 
   create_table "doctor_schedules", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "doctor_id", null: false
+    t.bigint "hospital_id", null: false
     t.date "date"
     t.time "start_time"
     t.time "end_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["doctor_id"], name: "index_doctor_schedules_on_doctor_id"
+    t.index ["hospital_id"], name: "index_doctor_schedules_on_hospital_id"
   end
 
   create_table "doctors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -90,7 +94,9 @@ ActiveRecord::Schema.define(version: 2020_05_15_114956) do
   add_foreign_key "booking_details", "bookings"
   add_foreign_key "bookings", "customers"
   add_foreign_key "bookings", "doctors"
+  add_foreign_key "bookings", "hospitals"
   add_foreign_key "doctor_categories", "categories"
   add_foreign_key "doctor_categories", "doctors"
   add_foreign_key "doctor_schedules", "doctors"
+  add_foreign_key "doctor_schedules", "hospitals"
 end

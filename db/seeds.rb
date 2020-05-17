@@ -25,7 +25,11 @@ hospitals = Hospital.create([{name: 'Rs. Ibu dan anak sehat', address: 'Jl. Jaga
     fakerOpeningHour = Faker::Time.between_dates(from: fakerDate, to: fakerDate, period: :afternoon)
     fakerClosingHour = Faker::Time.between(from: fakerOpeningHour + 7200, to: fakerOpeningHour + 10800)
     DoctorSchedule.create(
-        doctor: doctor, date: fakerDate, start_time: fakerOpeningHour, end_time: fakerClosingHour
+        doctor: doctor, 
+        hospital: hospitals[rand(3)],
+        date: fakerDate, 
+        start_time: fakerOpeningHour, 
+        end_time: fakerClosingHour
     )
 end
 
